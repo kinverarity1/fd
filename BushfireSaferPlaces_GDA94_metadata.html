@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head id="Head1"><meta charset="utf-8" /><title>
+	Location Metadata System - Location SA - Public
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <script src="~/Scripts/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/lms.js" type="text/javascript"></script>
+        <script src="~/Scripts/moment.min.js" type="text/javascript"></script>
+
+
+        <link href="../Content/bootstrap.css" rel="stylesheet" type="text/css" /><link href="../Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css" /><link href="../Content/lms.css" rel="stylesheet" type="text/css" />
+    
+
+        <!--[if lt IE 9]>  
+        <script src="~/Scripts/html5shiv.js"></script>
+        <script src="~/Scripts/respond.min.js"></script>
+        <![endif]-->
+
+       
+</head>
+
+    <body>
+        <form method="post" action="ReportMetadata.aspx" id="frmLMS" role="form">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTQ1OTk5NjE1D2QWAmYPZBYCAgMPZBYEZg8PFgIeC05hdmlnYXRlVXJsBR5odHRwOi8vd3d3LmxvY2F0aW9uLnNhLmdvdi5hdS9kFgJmDw8WBB4ISW1hZ2VVcmwFLn4vSW1hZ2VzL0xPQ1NBMDAxX0xvZ29fU2NyZWVuX1YyX1JHQl9DX3NtbC5qcGceDUFsdGVybmF0ZVRleHQFC0xvY2F0aW9uIFNBZGQCAQ9kFggCAQ8PFgIeBFRleHQFFUJ1c2hmaXJlIFNhZmVyIFBsYWNlc2RkAgMPPCsAEQIBEBYAFgAWAAwUKwAAZAIFDw8WAh4HVmlzaWJsZWdkFg4CAQ88KwAKAQAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnQCAWQWAmYPZBYGZg8PFgIfBGhkZAIBD2QWAmYPZBYCZg8VAwQyMjA0FUJ1c2hmaXJlIFNhZmVyIFBsYWNlc19EYXRhIEF1dGhvcml0eTogQ291bnRyeSBGaXJlIFNlcnZpY2UgKENGUyk8QlIgLz5EYXRhIFByb3ZpZGVyOiBDb3VudHJ5IEZpcmUgU2VydmljZSAoQ0ZTKTxCUiAvPmQCAg8PFgIfBGhkZAIDDzwrAAoBAA8WBB8FZx8GAgFkFgJmD2QWBmYPDxYCHwRoZGQCAQ9kFgJmD2QWAmYPFQK+BEEgQnVzaGZpcmUgU2FmZXIgUGxhY2UgaXMgYSBwbGFjZSBvZiByZWxhdGl2ZSBzYWZldHkuIEl0IG1heSBiZSB1c2VkIGFzIGEgcGxhY2UgZm9yIHBlb3BsZSB0byBzdGF5IGluIG9yIGFzIGEgcGxhY2Ugb2YgZmlyc3QgcmVzb3J0IGZvciB0aG9zZSB3aG8gaGF2ZSBkZWNpZGVkIHRoZXkgd2lsbCBsZWF2ZSBoaWdoIHJpc2sgbG9jYXRpb25zIGVhcmx5IG9uIGEgaGlnaCBmaXJlIHJpc2sgZGF5LiANCg0KUHJvcGVydGllcyBvbiB0aGUgb3V0c2tpcnRzIG9mIHN1Y2ggbG9jYXRpb25zIGdlbmVyYWxseSBmYWNlIGEgaGlnaGVyIGxldmVsIG9mIHJpc2sgd2hlbiBjb21wYXJlZCB3aXRoIHRob3NlIG5lYXJlciB0aGUgY2VudGVyIG9mIHRoZSBkZXNpZ25hdGVkIGFyZWEuIFRoZSByZWxhdGl2ZSBzYWZldHkgb2YgdGhlc2UgcHJvcGVydGllcyBjYW4gYmUgaW1wcm92ZWQgYnkgcHJvcGVydHkgb3duZXJzIHVuZGVydGFraW5nIGFwcHJvcHJpYXRlIGJ1c2hmaXJlIHNhZmV0eSB3b3JrcyB0byBlbnN1cmUgdGhleSBkb24ndCBwbGFjZSB0aGVtc2VsdmVzIGFuZCB0aGUgZ3JlYXRlciBjb21tdW5pdHkgYXQgcmlzay6+AUZvciB0aGUgaWRlbnRpZmljYXRpb24gb2YgdGhlIHNwYXRpYWwgZXh0ZW50IG9mIEJ1c2hmaXJlIFNhZmVyIFBsYWNlcy4gVGhlIGRhdGFzZXQgaXMgdXNlZCBpbiB2YXJpb3VzIFNBQ0ZTIFdlYiBNYXBwaW5nIEFwcGxpY2F0aW9ucyB0byBpZGVudGlmeSBhcmVhcyBvZiByZWxhdGl2ZSBzYWZldHkgZHVyaW5nIGEgYnVzaGZpcmUuICBkAgIPDxYCHwRoZGQCBQ88KwAKAQAPFgQfBWcfBgIBZBYCZg9kFgZmDw8WAh8EaGRkAgEPZBYCZg9kFgJmDxUDzAZCdXNoZmlyZSBTYWZlciBQbGFjZXMgYXJlIGFzc2Vzc2VkIHVzaW5nIEFTIDM5NTkgLSBDb25zdHJ1Y3Rpb24gb2YgYnVpbGRpbmdzIGluIGJ1c2hmaXJlLXByb25lIGFyZWFzIGFuZCB0aGUgUmFkaWFudCBIZWF0IEZsdXggY2FsY3VsYXRpb24gdG9vbCBmcm9tIE5ld2Nhc3RsZSBCdXNoZmlyZSBDb25zdWx0aW5nLiBUaGUgYXNzZXNzbWVudCBvZiBhIEJ1c2hmaXJlIFNhZmVyIFBsYWNlIHRha2VzIGludG8gYWNjb3VudCB2ZWdldGF0aW9uIHR5cGUsIHNpdGUgc2xvcGUsIHZlZ2V0YXRpb24gc2xvcGUsIHB1YmxpYyBzYWZldHkgaXNzdWVzIGFuZCBhY2Nlc3MuIER1cmluZyBhbiBhc3Nlc3NtZW50LCBjb25zdWx0YXRpb24gbWF5IG9jY3VyIHdpdGggcmVsZXZhbnQgTG9jYWwgQ291bmNpbHMsIHNwb3J0aW5nIG9yIGNvbW11bml0eSBncm91cHMsIEdvdmVybm1lbnQgRGVwYXJ0bWVudHMsIHByaXZhdGUgbGFuZGhvbGRlcnMgb3IgZ3JvdXBzIGFuZCBDRlMgKGxvY2FsIGFuZCBSZWdpb24pLiANCg0KUG9zdCBmaWVsZCBhbmQgaW4tb2ZmaWNlIGFzc2Vzc21lbnRzLCBhIHJlY29tbWVuZGF0aW9uIHJlcG9ydCBpcyBnZW5lcmF0ZWQgZm9yIHRoZSByZWxldmFudCBCdXNoZmlyZSBNYW5hZ2VtZW50IENvbW1pdHRlZSAoQk1DKS4gVGhlIEJNQyBtdXN0IGZvcm1hbGx5IGVpdGhlciBlbmRvcnNlIG9yIHJlamVjdCB0aGUgcmVjb21tZW5kYXRpb24gcmVwb3J0LiBJZiBlbmRvcnNlZCwgdGhlIEJ1c2hmaXJlIFNhZmVyIFBsYWNlIHNwYXRpYWwgZGF0YXNldCBpcyBkZXJpdmVkIGZyb20gdGhlIGFzc2Vzc21lbnQgZGV0YWlscyBhbmQgc25hcHBlZCB0byB0aGUgZGlnaXRhbCBjYWRhc3RyZS4gnwFDb21wbGV0ZSBmb3IgYWxsIDUyIGxvY2FsIGNvdW5jaWwgYXJlYXMgdGhhdCBjdXJyZW50bHkgaGF2ZSBCdXNoZmlyZSBTYWZlciBQbGFjZXMgaW4gdGhlaXIgYXJlYS4gSG93ZXZlciwgdGhpcyBpcyBhIGR5bmFtaWMgZGF0YXNldCB0aGF0IG1heSBleHBhbmQgb3ZlciB0aW1lLiBYU2FtZSBhcyBEQ0RCLiBCb3VuZGFyaWVzIGFyZSB2ZXJpZmllZCBhbmQgY2hlY2tlZCBieSBDRlMgaW4gY29sbGFib3JhdGlvbiB3aXRoIHRoZSBCTUNzLmQCAg8PFgIfBGhkZAIHDzwrAAoBAA8WBB8FZx8GAgFkFgJmD2QWBmYPDxYCHwRoZGQCAQ9kFgJmD2QWAmYPFQUPU291dGggQXVzdHJhbGlhAzEyOQYtMzguMjUDMTQxAy0yNmQCAg8PFgIfBGhkZAIJDzwrAAoBAA8WBB8FZx8GAgFkFgJmD2QWBmYPDxYCHwRoZGQCAQ9kFgJmD2QWBGYPFQQEMjAxMQswOSBBVUcgMjAxOAtBcyByZXF1aXJlZL0BU2FtZSBhcyBpbml0aWFsIGNhcHR1cmUuIE5ldyBCdXNoZmlyZSBTYWZlciBQbGFjZXMgb3IgZXhwYW5zaW9ucyBvZiBhbHJlYWR5IGV4aXN0aW5nIEJ1c2hmaXJlIFNhZmVyIFBsYWNlcyBjYW4gYmUgZWxlY3RlZCB0byBiZSBhc3Nlc3NlZCB0aHJvdWdoIHRoZSByZWxldmFudCBCdXNoZmlyZSBNYW5hZ2VtZW50IENvbW1pdHRlZS4gZAICDxUCADVDQyBCWS1OQy1ORCAoQXR0cmlidXRpb24tTm9uQ29tbWVyY2lhbC1Ob0Rlcml2YXRpdmVzKWQCAg8PFgIfBGhkZAINDzwrABEDAA8WBB8FZx8GAgdkARAWABYAFgAMFCsAABYCZg9kFhACAQ9kFgpmDw8WAh8DBRVCdXNoZmlyZV9TYWZlcl9QbGFjZXNkZAIBDw8WAh8DBQNCU1BkZAICDw8WAh8DBRRCVVNIRklSRV9TQUZFUl9QTEFDRWRkAgMPDxYCHwMFCUNoYXJhY3RlcmRkAgQPDxYCHwMFPk5hbWUgb2YgQnVzaGZpcmUgU2FmZXIgUGxhY2UgKHVzdWFsbHkgdG93bnNoaXAgb3Igc3VidXJiIG5hbWUpZGQCAg9kFgpmDw8WAh8DBRVCdXNoZmlyZV9TYWZlcl9QbGFjZXNkZAIBDw8WAh8DBQNGRElkZAICDw8WAh8DBRFGSVJFX0RBTkdFUl9JTkRFWGRkAgMPDxYCHwMFB0ludGVnZXJkZAIEDw8WAh8DBYUBQXNzdW1lZCBNY0FydGh1ciYjMzk7cyBGaXJlIERhbmdlciBJbmRleC4gMTIwIGZvciB0aGUgRm9yZXN0IEZpcmUgRGFuZ2VyIEluZGV4IChGRkRJKSBhbmQgMTcwIGZvciB0aGUgR3Jhc3MgRmlyZSBEYW5nZXIgSW5kZXggKEdGREkpIGRkAgMPZBYKZg8PFgIfAwUVQnVzaGZpcmVfU2FmZXJfUGxhY2VzZGQCAQ8PFgIfAwUDRkJEZGQCAg8PFgIfAwURRklSRV9CQU5fRElTVFJJQ1RkZAIDDw8WAh8DBQlDaGFyYWN0ZXJkZAIEDw8WAh8DBRFGaXJlIEJhbiBEaXN0cmljdGRkAgQPZBYKZg8PFgIfAwUVQnVzaGZpcmVfU2FmZXJfUGxhY2VzZGQCAQ8PFgIfAwUDQk1BZGQCAg8PFgIfAwUXQlVTSEZJUkVfTUFOR0VNRU5UX0FSRUFkZAIDDw8WAh8DBQlDaGFyYWN0ZXJkZAIEDw8WAh8DBRhCdXNoZmlyZSBNYW5hZ2VtZW50IEFyZWFkZAIFD2QWCmYPDxYCHwMFFUJ1c2hmaXJlX1NhZmVyX1BsYWNlc2RkAgEPDxYCHwMFB0NPVU5DSUxkZAICDw8WAh8DBQdDT1VOQ0lMZGQCAw8PFgIfAwUJQ2hhcmFjdGVyZGQCBA8PFgIfAwUNTG9jYWwgQ291bmNpbGRkAgYPZBYKZg8PFgIfAwUVQnVzaGZpcmVfU2FmZXJfUGxhY2VzZGQCAQ8PFgIfAwUNQVBQUk9WQUxfREFURWRkAgIPDxYCHwMFDUFQUFJPVkFMX0RBVEVkZAIDDw8WAh8DBQdJbnRlZ2VyZGQCBA8PFgIfAwVXQXBwcm92YWwgZGF0ZSBvZiB0aGUgQnVzaGZpcmUgU2FmZXIgUGxhY2UgYnkgdGhlIHJlbGV2YW50IEJ1c2hmaXJlIE1hbmFnZW1lbnQgQ29tbWl0dGVlZGQCBw9kFgpmDw8WAh8DBRVCdXNoZmlyZV9TYWZlcl9QbGFjZXNkZAIBDw8WAh8DBQxBTUVOREVEX0RBVEVkZAICDw8WAh8DBQxBTUVOREVEX0RBVEVkZAIDDw8WAh8DBQdJbnRlZ2VyZGQCBA8PFgIfAwVnQXBwcm92YWwgZGF0ZSBvZiBhbiBhbWVuZG1lbnQgdG8gdGhlIEJ1c2hmaXJlIFNhZmVyIFBsYWNlIGJ5IHRoZSByZWxldmFudCBCdXNoZmlyZSBNYW5hZ2VtZW50IENvbW1pdHRlZWRkAggPDxYCHwRoZGQCDw88KwAKAQAPFgQfBWcfBgIBZBYCZg9kFgZmDw8WAh8EaGRkAgEPZBYCZg9kFgJmDxUFGkNvdW50cnkgRmlyZSBTZXJ2aWNlIChDRlMpDEJPWCAyNDY4PEJSPghBREVMQUlERQdTQSA1MDAxAGQCAg8PFgIfBGhkZAIHDw8WAh8EaGQWGgIBDzwrAAoAZAIDDzwrAAoAZAIFDzwrAAoAZAIHDzwrAAoAZAIJDzwrAAoAZAILDzwrAAoAZAIPDzwrABECARAWABYAFgAMFCsAAGQCEw88KwARAgEQFgAWABYADBQrAABkAhUPPCsACgBkAhcPPCsACgBkAhkPPCsACgBkAh0PPCsAEQIBEBYAFgAWAAwUKwAAZAIfDzwrAAoAZBgVBSBjdGwwMCRNYWluQ29udGVudCRmdkRhdGFQcm92aWRlcg9nZAUgY3RsMDAkTWFpbkNvbnRlbnQkZnZEZXNjcmlwdGlvbjIPZ2QFHGN0bDAwJE1haW5Db250ZW50JGZ2Q2l0YXRpb24PFCsAB2RkZGRkFgACAWQFH2N0bDAwJE1haW5Db250ZW50JGd2RGF0YXNldExpc3QPZ2QFG2N0bDAwJE1haW5Db250ZW50JGZ2UXVhbGl0eQ8UKwAHZGRkZGQWAAIBZAUbY3RsMDAkTWFpbkNvbnRlbnQkZ3ZEYXROb3RlD2dkBR1jdGwwMCRNYWluQ29udGVudCRmdkdlb0V4dGVudA8UKwAHZGRkZGQWAAIBZAUlY3RsMDAkTWFpbkNvbnRlbnQkZnZTZWN1cml0eUxpY2Vuc2luZw9nZAUaY3RsMDAkTWFpbkNvbnRlbnQkZnZFeHRlbnQPZ2QFGmN0bDAwJE1haW5Db250ZW50JGd2VGFibGVzD2dkBR9jdGwwMCRNYWluQ29udGVudCRmdkRlc2NyaXB0aW9uDxQrAAdkZGRkZBYAAgFkBRtjdGwwMCRNYWluQ29udGVudCRmdkRhdGFzZXQPZ2QFGmN0bDAwJE1haW5Db250ZW50JGZ2U3RhdHVzD2dkBSFjdGwwMCRNYWluQ29udGVudCRmdkRhdGFBdXRob3JpdHkPZ2QFIWN0bDAwJE1haW5Db250ZW50JGZ2RGF0YXNldFN0YXR1cw8UKwAHZGRkZGQWAAIBZAUaY3RsMDAkTWFpbkNvbnRlbnQkZ3ZGaWVsZHMPZ2QFG2N0bDAwJE1haW5Db250ZW50JGZ2Q29udGFjdA8UKwAHZGRkZGQWAAIBZAUeY3RsMDAkTWFpbkNvbnRlbnQkZ3ZBdHRyaWJ1dGVzDzwrAAwBCAIBZAUkY3RsMDAkTWFpbkNvbnRlbnQkZnZSZWxhdGVkUHJvZHVjdHMyD2dkBSZjdGwwMCRNYWluQ29udGVudCRmdkpvaW50RGF0YUF1dGhvcml0eQ9nZAUjY3RsMDAkTWFpbkNvbnRlbnQkZnZSZWxhdGVkUHJvZHVjdHMPZ2SM0uk2UhQ54+/WroJNdz4h8OsRtQ==" />
+</div>
+
+            <header>
+                <div class="container">
+                    
+                    <div class="row">
+                        <div id="dpti-lms-head-container" class="small col-sm-12">
+                            <div id="logo">
+                                <a id="linkLogoURL" href="http://www.location.sa.gov.au/"><img id="imgReportLogo" src="../Images/LOCSA001_Logo_Screen_V2_RGB_C_sml.jpg" alt="Location SA" /></a>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="container">        
+               
+
+    <h3><span id="MainContent_lblDatasetName">Bushfire Safer Places</span></h3>
+
+    <div>
+
+</div>
+
+    <div id="MainContent_pnlPublic">
+	
+
+        <table cellspacing="0" id="MainContent_fvCitation" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+
+                <table>
+                    <tr>
+                        <td class="columnlabel">Dataset Number</td><td class="datatext">2204</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Dataset Title</td><td class="datatext">Bushfire Safer Places</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Custodian</td><td class="datatext">Data Authority: Country Fire Service (CFS)<BR />Data Provider: Country Fire Service (CFS)<BR /></td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+
+
+
+        <table cellspacing="0" id="MainContent_fvDescription" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+                <h4 class="divider">Description</h4>
+                <table> 
+                    <tr>
+                        <td class="columnlabel">Description</td><td class="datatext">A Bushfire Safer Place is a place of relative safety. It may be used as a place for people to stay in or as a place of first resort for those who have decided they will leave high risk locations early on a high fire risk day. 
+
+Properties on the outskirts of such locations generally face a higher level of risk when compared with those nearer the center of the designated area. The relative safety of these properties can be improved by property owners undertaking appropriate bushfire safety works to ensure they don't place themselves and the greater community at risk.</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Usage</td><td class="datatext">For the identification of the spatial extent of Bushfire Safer Places. The dataset is used in various SACFS Web Mapping Applications to identify areas of relative safety during a bushfire.  </td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+
+        <table cellspacing="0" id="MainContent_fvQuality" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+                <h4 class="divider">Data Quality</h4>
+                <table>
+                    <tr>
+                        <td class="columnlabel">Lineage</td><td class="datatext">Bushfire Safer Places are assessed using AS 3959 - Construction of buildings in bushfire-prone areas and the Radiant Heat Flux calculation tool from Newcastle Bushfire Consulting. The assessment of a Bushfire Safer Place takes into account vegetation type, site slope, vegetation slope, public safety issues and access. During an assessment, consultation may occur with relevant Local Councils, sporting or community groups, Government Departments, private landholders or groups and CFS (local and Region). 
+
+Post field and in-office assessments, a recommendation report is generated for the relevant Bushfire Management Committee (BMC). The BMC must formally either endorse or reject the recommendation report. If endorsed, the Bushfire Safer Place spatial dataset is derived from the assessment details and snapped to the digital cadastre. </td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Completeness</td><td class="datatext">Complete for all 52 local council areas that currently have Bushfire Safer Places in their area. However, this is a dynamic dataset that may expand over time. </td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Positional Accuracy</td><td class="datatext">Same as DCDB. Boundaries are verified and checked by CFS in collaboration with the BMCs.</td>
+                    </tr>
+
+                </table>
+            </td>
+		</tr>
+	</table>
+
+        <table cellspacing="0" id="MainContent_fvGeoExtent" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+                <h4 class="divider">Geographic Extent</h4>
+                <table>
+                    <tr>
+                        <td class="columnlabel">Extent Name</td><td class="datatext">South Australia</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Min Easting or Longitude</td><td class="datatext">129</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Min Northing or Latitude</td><td class="datatext">-38.25</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Max Easting or Longitude</td><td class="datatext">141</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Max Northing or Latitude</td><td class="datatext">-26</td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+
+        <table cellspacing="0" id="MainContent_fvDatasetStatus" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+                <h4 class="divider">Dataset Status</h4>
+                <table>
+                    <tr>
+                        <td class="columnlabel">Initially Acquired</td><td class="datatext">2011</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Last Updated</td><td class="datatext">09 AUG 2018</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Update Frequency</td><td class="datatext">As required</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Maintenance Method</td><td class="datatext">Same as initial capture. New Bushfire Safer Places or expansions of already existing Bushfire Safer Places can be elected to be assessed through the relevant Bushfire Management Committee. </td>
+                    </tr>
+
+                    <tr>
+                        <td id="MainContent_fvDatasetStatus_Td2" class="columnlabel"></td>
+			<td class="datatext"></td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">AusGOAL</td><td class="datatext">CC BY-NC-ND (Attribution-NonCommercial-NoDerivatives)</td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+    
+        <h4 id="MainContent_lblAttHeader" class="divider">Attributes</h4>
+
+        <div>
+		<table class="table table-striped" cellspacing="0" rules="all" border="1" id="MainContent_gvAttributes" style="border-collapse:collapse;">
+			<tr>
+				<th scope="col">Table</th><th scope="col">Name</th><th scope="col">Field Alias</th><th scope="col">Data Type</th><th scope="col">Description</th>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>BSP</td><td>BUSHFIRE_SAFER_PLACE</td><td>Character</td><td>Name of Bushfire Safer Place (usually township or suburb name)</td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>FDI</td><td>FIRE_DANGER_INDEX</td><td>Integer</td><td>Assumed McArthur&#39;s Fire Danger Index. 120 for the Forest Fire Danger Index (FFDI) and 170 for the Grass Fire Danger Index (GFDI) </td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>FBD</td><td>FIRE_BAN_DISTRICT</td><td>Character</td><td>Fire Ban District</td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>BMA</td><td>BUSHFIRE_MANGEMENT_AREA</td><td>Character</td><td>Bushfire Management Area</td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>COUNCIL</td><td>COUNCIL</td><td>Character</td><td>Local Council</td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>APPROVAL_DATE</td><td>APPROVAL_DATE</td><td>Integer</td><td>Approval date of the Bushfire Safer Place by the relevant Bushfire Management Committee</td>
+			</tr><tr>
+				<td>Bushfire_Safer_Places</td><td>AMENDED_DATE</td><td>AMENDED_DATE</td><td>Integer</td><td>Approval date of an amendment to the Bushfire Safer Place by the relevant Bushfire Management Committee</td>
+			</tr>
+		</table>
+	</div>
+
+        <table cellspacing="0" id="MainContent_fvContact" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="2">
+                <h4 class="divider">Contact Information</h4>
+                <table>
+                    <tr>
+                        <td class="columnlabel">Organisation</td><td class="datatext">Country Fire Service (CFS)</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Postal Address</td><td class="datatext">BOX 2468<BR> <BR/> ADELAIDE  <BR/> SA 5001</td>
+                    </tr>
+                    <tr>
+                        <td class="columnlabel">Email</td><td class="datatext"></td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+
+    
+</div>
+
+    
+
+
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>&nbsp;</div>
+                          <p>This Metadata document has been delivered by the Location Metadata System (LMS) developed by Location SA.</p>
+                          <p>Retrieved on: Friday, 15 November 2019 </p>
+                          <p>Metadata URL: <a href="http://location.sa.gov.au/LMS/Reports/ReportMetadata.aspx?p_no=2204&pu=y">http://location.sa.gov.au/LMS/Reports/ReportMetadata.aspx?p_no=2204&pu=y </a></p>
+                          <p>This metadata report is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/au/deed.en" title="Creative Commons License information">Creative Commons Attribution 3.0 Australia Licence</a>  
+                           <img id="ccLogo" src="../Images/icon_commons.png" alt="Creative Commons Licence" />
+								<p>Copyright in this information remains with the Crown in right of the State of South Australia and its licensors including but not limited to the Commonwealth of Australia. Information is not represented to be accurate, current, complete or suitable for any purpose, at the time of its supply and may have changed since the date of supply. No responsibility is accepted for any reliance placed by any person in the use of this information.<br />
+                                   <br />&copy; Copyright 2019 Location SA </p>
+                         </div>
+                    </div>
+                </div>
+            </footer>
+        
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="ABE23021" />
+</div></form>
+        <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+    </body>
+
+</html>
